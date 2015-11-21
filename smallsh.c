@@ -61,7 +61,7 @@ char* readInput()
 
 char** parseInput(char *input)
 {
-	const char* delimiters = ARG_DELIMITER
+	const char* delimiters = ARG_DELIMITER;
 	size_t argLimit = ARG_NUMBER_LIMIT;
 	int i = 0;
 	char* currentToken;
