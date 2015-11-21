@@ -5,8 +5,11 @@
 ** Shell
 ******************************************************************************/
 
+#include <sys/wait.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //some predefined limits per the assignment guidelines
 #define BUFFER_CHAR_LIMIT 2048
@@ -72,6 +75,7 @@ char** parseInput(char *input)
 		perror("smallsh: Unable to allocate parseInput argument token array");
 		exit(1);
 	}
+	
 	currentToken = strtok(input, delimiters);
 	while (currentToken != NULL)
 	{
