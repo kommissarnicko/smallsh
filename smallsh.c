@@ -90,7 +90,7 @@ char** parseInput(char *input)
 void promptLoop()
 {
 	char *input;
-	char **arugments;
+	char **arguments;
 	int status;
 	
 	do
