@@ -61,6 +61,7 @@ char* readInput()
 
 char** parseInput(char *input)
 {
+	const char* delimiters = ARG_DELIMITER
 	size_t argLimit = ARG_NUMBER_LIMIT;
 	int i = 0;
 	char* currentToken;
@@ -71,12 +72,12 @@ char** parseInput(char *input)
 		perror("smallsh: Unable to allocate parseInput argument token array");
 		exit(1);
 	}
-	currentToken = strtok(input, ARG_DELIMITER);
+	currentToken = strtok(input, delimiters);
 	while (currentToken != NULL)
 	{
 		argArray[i] = currentToken;
 		i++;
-		currentToken = strtok(NULL, ARG_DELIMITER);
+		currentToken = strtok(NULL, delimiters);
 	}
 	argArray[i] = NULL;
 	return argArray;
