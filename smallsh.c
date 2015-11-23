@@ -29,15 +29,6 @@ void changeDirectory(char** argArray)
 	}
 	printf("directory = [%s]\n", directory);
 	printf("final char = [%d]\n", directory[strlen(directory) - 1]);
-	
-	// if (directory != NULL)
-	// {
-		// 
-	// }
-	// if (argArray[1] == NULL)
-	// {
-		// chdir(getenv("HOME"));
-	// }
 	if (chdir(directory) == -1)
 	{
 		printf("Invalid directory.\n");
@@ -47,32 +38,14 @@ void changeDirectory(char** argArray)
 
 int executeInput(char **argArray)
 {
-	char* execute = argArray[0];
-	switch (execute)
+	if (strcmp("exit", argArray[0]) == 0)
 	{
-		case "exit":
-			return 0;
-			break;
-		
-		case "cd":
-			changeDirectory(argArray);
-			return 1;
-			break;
-		
-		case "#":
-			return 1;
-			break;
-			
-		default:
-			return startProcess(argArray);
-			break;
-	}
-/* 	{
 		return 0;
 	}
 	if (strcmp("cd", argArray[0]) == 0)
 	{
 		changeDirectory(argArray);
+		return 1;
 	}
 	// if (strcmp("status", argArray[0] == 0)
 	// {
@@ -82,11 +55,11 @@ int executeInput(char **argArray)
 	{
 		return 1;
 	}
-	// else
-	// {
-		// printf("are we here?\n");
-		// return startProcess(argArray);
-	// } */
+	else
+	{
+		printf("are we here?\n");
+		return startProcess(argArray);
+	}
 }
 
 
