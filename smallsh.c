@@ -18,7 +18,7 @@
 
 void changeDirectory(char** argArray)
 {
-	char directory [] = argArray[1];
+	char* directory = argArray[1];
 	if (argArray[1] == NULL)
 	{
 		directory = getenv("HOME");
