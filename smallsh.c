@@ -47,8 +47,27 @@ void changeDirectory(char** argArray)
 
 int executeInput(char **argArray)
 {
-	if (strcmp("exit", argArray[0]) == 0)
+	char* execute = argArray[0]
+	switch (execute)
 	{
+		case "exit":
+			return 0;
+			break;
+		
+		case "cd":
+			changeDirectory(argArray);
+			return 1;
+			break;
+		
+		case "#":
+			return 1;
+			break;
+			
+		default:
+			return startProcess(argArray);
+			break;
+	}
+/* 	{
 		return 0;
 	}
 	if (strcmp("cd", argArray[0]) == 0)
@@ -67,7 +86,7 @@ int executeInput(char **argArray)
 	// {
 		// printf("are we here?\n");
 		// return startProcess(argArray);
-	// }
+	// } */
 }
 
 
