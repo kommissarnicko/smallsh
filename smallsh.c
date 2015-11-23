@@ -16,6 +16,22 @@
 #define ARG_NUMBER_LIMIT 512
 #define ARG_DELIMITER " \x0A\x09" //delimited by space, horizontal tab, newline
 
+void changeDirectory(char** argArray)
+{
+	if (argArray[1] == NULL)
+	{
+		chdir(getenv("HOME"));
+	}
+	else
+	{
+		if (chdir(argArray[1]) == -1)
+		{
+			printf("Invalid directory.\n");
+		}
+	}
+}
+
+
 int executeInput(char **argArray)
 {
 	if (strcmp("exit", argArray[0]) == 0)
@@ -68,22 +84,6 @@ int startProcess(char **argArray)
 	}
 	
 	return 1;
-}
-
-
-void changeDirectory(char** argArray)
-{
-	if (argArray[1] == NULL)
-	{
-		chdir(getenv("HOME"));
-	}
-	else
-	{
-		if (chdir(argArray[1]) == -1)
-		{
-			printf("Invalid directory.\n");
-		}
-	}
 }
 
 
