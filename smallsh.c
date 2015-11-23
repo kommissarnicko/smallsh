@@ -47,7 +47,7 @@ void changeDirectory(char** argArray)
 
 int executeInput(char **argArray)
 {
-	char* execute = argArray[0]
+	char* execute = argArray[0];
 	switch (execute)
 	{
 		case "exit":
