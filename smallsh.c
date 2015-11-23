@@ -151,7 +151,6 @@ void promptLoop()
 	do
 	{
 		printf(": ");
-		fflush(0);
 		input = readInput();
 		arguments = parseInput(input);
 		status = executeInput(arguments);
