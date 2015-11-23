@@ -65,6 +65,7 @@ int executeInput(char **argArray)
 	}
 	else
 	{
+		printf("are we here?\n");
 		return startProcess(argArray);
 	}
 }
