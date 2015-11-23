@@ -18,19 +18,14 @@
 
 void changeDirectory(char** argArray)
 {
-	printf("%s", argArray[1]);
-	char* directory = argArray[1];
+	printf("directory = [%s]\n", argArray[1]);
 	if (argArray[1] == NULL)
 	{
-		directory = getenv("HOME");
-	}
-	if (directory[strlen(directory) - 1] == '\n')
-	{
-		directory[strlen(directory) - 1] = '\0';
+		chdir(getenv("HOME"));
 	}
 	else
 	{
-		if (chdir(directory) == -1)
+		if (chdir(argArray[1]) == -1)
 		{
 			printf("Invalid directory.\n");
 		}
