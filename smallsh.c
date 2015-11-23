@@ -20,7 +20,7 @@ void changeDirectory(char** argArray)
 {
 	char* directory = argArray[1];
 	printf("directory = [%s]\n", directory);
-	printf("final char = [%d]\n", directory[strlen(directory) - 1]);
+	printf("final char = [%d]\n", directory[strlen(directory) - 2]);
 	if (argArray[1] == NULL)
 	{
 		chdir(getenv("HOME"));
