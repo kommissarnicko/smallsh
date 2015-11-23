@@ -18,7 +18,9 @@
 
 void changeDirectory(char** argArray)
 {
-	printf("directory = [%s]\n", argArray[1]);
+	char* directory = argArray[1];
+	printf("directory = [%s]\n", directory);
+	printf("final char = [%d]\n", directory[strlen(directory) - 1]);
 	if (argArray[1] == NULL)
 	{
 		chdir(getenv("HOME"));
