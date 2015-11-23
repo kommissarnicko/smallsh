@@ -63,11 +63,11 @@ int executeInput(char **argArray)
 	{
 		return 1;
 	}
-	else
-	{
-		printf("are we here?\n");
-		return startProcess(argArray);
-	}
+	// else
+	// {
+		// printf("are we here?\n");
+		// return startProcess(argArray);
+	// }
 }
 
 
