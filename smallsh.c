@@ -18,11 +18,11 @@
 
 int executeInput(char **argArray)
 {
-	if (strcmp("exit", argArray[0] == 0)
+	if (strcmp("exit", argArray[0]) == 0)
 	{
 		return 0;
 	}
-	if (strcmp("cd", argArray[0] == 0)
+	if (strcmp("cd", argArray[0]) == 0)
 	{
 		changeDirectory(argArray);
 	}
@@ -30,7 +30,7 @@ int executeInput(char **argArray)
 	// {
 		
 	// }
-	if (strcmp("#", argArray[0] == 0)
+	if (strcmp("#", argArray[0]) == 0)
 	{
 		return 1;
 	}
