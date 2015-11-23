@@ -38,12 +38,9 @@ void changeDirectory(char** argArray)
 	// {
 		// chdir(getenv("HOME"));
 	// }
-	else
+	if (chdir(directory) == -1)
 	{
-		if (chdir(directory) == -1)
-		{
-			printf("Invalid directory.\n");
-		}
+		printf("Invalid directory.\n");
 	}
 }
 
