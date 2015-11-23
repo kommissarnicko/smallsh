@@ -16,6 +16,31 @@
 #define ARG_NUMBER_LIMIT 512
 #define ARG_DELIMITER " \x0A\x09" //delimited by space, horizontal tab, newline
 
+int executeInput(char **argArray)
+{
+	if (strcmp("exit", argArray[0] == 0)
+	{
+		return 0;
+	}
+	if (strcmp("cd", argArray[0] == 0)
+	{
+		changeDirectory(argArray);
+	}
+	// if (strcmp("status", argArray[0] == 0)
+	// {
+		
+	// }
+	if (strcmp("#", argArray[0] == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return startProcess(argArray);
+	}
+}
+
+
 int startProcess(char **argArray)
 {
 	pid_t pid;
@@ -43,6 +68,22 @@ int startProcess(char **argArray)
 	}
 	
 	return 1;
+}
+
+
+void changeDirectory(char** argArray)
+{
+	if (argArray[1] == NULL)
+	{
+		chdir(getenv("HOME"));
+	}
+	else
+	{
+		if (chdir(argArray[1]) == -1)
+		{
+			printf("Invalid directory.\n");
+		}
+	}
 }
 
 
@@ -96,9 +137,13 @@ void promptLoop()
 	do
 	{
 		printf(": ");
+		fflush(0);
 		input = readInput();
 		arguments = parseInput(input);
-		status = startProcess(arguments);
+		status = executeInput(arguments);
+		
+		free(input);
+		free(arguments);
 	} while (status);
 }
 
