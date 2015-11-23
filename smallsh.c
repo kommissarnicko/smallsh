@@ -18,6 +18,7 @@
 
 void changeDirectory(char** argArray)
 {
+	printf("%s", argArray[1]);
 	char* directory = argArray[1];
 	if (argArray[1] == NULL)
 	{
