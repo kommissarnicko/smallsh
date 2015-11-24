@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
 
 //some predefined limits per the assignment guidelines
 #define BUFFER_CHAR_LIMIT 2048
