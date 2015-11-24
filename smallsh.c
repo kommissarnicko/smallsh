@@ -27,8 +27,8 @@ void changeDirectory(char** argArray)
 	{
 		directory = argArray[1];
 	}
-	printf("directory = [%s]\n", directory);
-	printf("final char = [%d]\n", directory[strlen(directory) - 1]);
+	// printf("directory = [%s]\n", directory);
+	// printf("final char = [%d]\n", directory[strlen(directory) - 1]);
 	if (chdir(directory) == -1)
 	{
 		printf("Invalid directory.\n");
@@ -54,10 +54,10 @@ int executeInput(char **argArray)
 		return 1;
 	}
 	
-	// if (strcmp("status", argArray[0] == 0)
-	// {
-		
-	// }
+	if (strcmp("status", argArray[0] == 0)
+	{
+		printf("Previous command terminated by signal [%d].\n", status);
+	}
 	
 	if (strcmp("#", argArray[0]) == 0)
 	{
@@ -97,7 +97,7 @@ int startProcess(char **argArray)
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 	
-	return 1;
+	return status;
 }
 
 
@@ -157,7 +157,7 @@ void promptLoop()
 		
 		free(input);
 		free(arguments);
-	} while (status);
+	} while (1);
 }
 
 
