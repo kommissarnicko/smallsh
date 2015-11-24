@@ -107,8 +107,11 @@ int startProcess(char **argArray)
 {
 	pid_t pid;
 	int status;
-	int redirect = fileInputOutput(argArray[1]);
 	int fd, fd2;
+	if (argArray[1] != NULL)
+	{
+		int redirect = fileInputOutput(argArray[1]);
+	}
 	
 	pid = fork();
 	if (pid == 0) //we are in the child process
