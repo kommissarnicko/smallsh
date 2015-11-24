@@ -55,7 +55,7 @@ int executeInput(char **argArray)
 	{
 		return 1;
 	}
-	if (argArray == NULL)
+	if (argArray[0] == NULL)
 	{
 		return 1;
 	}
