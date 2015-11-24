@@ -36,7 +36,7 @@ void changeDirectory(char** argArray)
 }
 
 
-int executeInput(char **argArray)
+int executeInput(char **argArray, int status)
 {
 	if (argArray[0] == NULL)
 	{
@@ -154,7 +154,7 @@ void promptLoop()
 		printf(": ");
 		input = readInput();
 		arguments = parseInput(input);
-		status = executeInput(arguments);
+		status = executeInput(arguments, status);
 		
 		free(input);
 		free(arguments);
