@@ -54,9 +54,10 @@ int executeInput(char **argArray)
 		return 1;
 	}
 	
-	if (strcmp("status", argArray[0] == 0)
+	if (strcmp("status", argArray[0]) == 0)
 	{
 		printf("Previous command terminated by signal [%d].\n", status);
+		return 1;
 	}
 	
 	if (strcmp("#", argArray[0]) == 0)
