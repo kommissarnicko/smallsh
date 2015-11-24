@@ -38,6 +38,10 @@ void changeDirectory(char** argArray)
 
 int executeInput(char **argArray)
 {
+	if (argArray[0] == NULL)
+	{
+		return 1;
+	}
 	if (strcmp("exit", argArray[0]) == 0)
 	{
 		return 0;
@@ -52,10 +56,6 @@ int executeInput(char **argArray)
 		
 	// }
 	if (strcmp("#", argArray[0]) == 0)
-	{
-		return 1;
-	}
-	if (argArray[0] == NULL)
 	{
 		return 1;
 	}
