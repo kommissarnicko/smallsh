@@ -109,7 +109,7 @@ int startProcess(char **argArray)
 	int status;
 	int fd, fd2;
 	int redirect = 0;
-	if (argArray[1] != NULL))
+	if (argArray[1] != NULL)
 	{
 		redirect = fileInputOutput(argArray[1]);
 	}
