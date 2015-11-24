@@ -42,26 +42,30 @@ int executeInput(char **argArray)
 	{
 		return 1;
 	}
+	
 	if (strcmp("exit", argArray[0]) == 0)
 	{
 		return 0;
 	}
+	
 	if (strcmp("cd", argArray[0]) == 0)
 	{
 		changeDirectory(argArray);
 		return 1;
 	}
+	
 	// if (strcmp("status", argArray[0] == 0)
 	// {
 		
 	// }
+	
 	if (strcmp("#", argArray[0]) == 0)
 	{
 		return 1;
 	}
+	
 	else
 	{
-		printf("are we here?\n");
 		return startProcess(argArray);
 	}
 }
