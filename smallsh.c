@@ -55,7 +55,7 @@ int executeInput(char **argArray)
 	{
 		return 1;
 	}
-	if (strcmp('\n', argArray[0]) == 0)
+	if (strcmp("\n", argArray[0]) == 0)
 	{
 		return 1;
 	}
