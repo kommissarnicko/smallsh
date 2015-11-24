@@ -108,9 +108,10 @@ int startProcess(char **argArray)
 	pid_t pid;
 	int status;
 	int fd, fd2;
-	if (argArray[1] != NULL)
+	int redirect = 0;
+	if (argArray[1] != NULL))
 	{
-		int redirect = fileInputOutput(argArray[1]);
+		redirect = fileInputOutput(argArray[1]);
 	}
 	
 	pid = fork();
