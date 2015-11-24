@@ -115,7 +115,7 @@ int startProcess(char **argArray)
 	{
 		if (redirect == 1) //second item in argArray is >
 		{
-			fd = open(argArray[2], O_WRONLY | O_CREAT | O_TRUN, 0644);
+			fd = open(argArray[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 			if (fd == -1)
 			{
 				perror("open");
