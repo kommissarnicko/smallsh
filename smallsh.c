@@ -36,6 +36,19 @@ void changeDirectory(char** argArray)
 }
 
 
+void printStatus(int status)
+{
+	if ((status >= 0) && (status <= 1))
+	{
+		printf("Exit value %d", status);
+	}
+	if (status > 1)
+	{
+		printf("Terminated by signal %d", status);
+	}
+}
+
+
 int executeInput(char **argArray, int status)
 {
 	if (argArray[0] == NULL)
@@ -45,7 +58,7 @@ int executeInput(char **argArray, int status)
 	
 	if (strcmp("exit", argArray[0]) == 0)
 	{
-		return 0;
+		exit(EXIT_SUCCESS);
 	}
 	
 	if (strcmp("cd", argArray[0]) == 0)
@@ -56,7 +69,7 @@ int executeInput(char **argArray, int status)
 	
 	if (strcmp("status", argArray[0]) == 0)
 	{
-		printf("Previous command terminated by signal [%d].\n", status);
+		printStatus(status);
 		return 1;
 	}
 	
