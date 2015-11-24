@@ -55,6 +55,10 @@ int executeInput(char **argArray)
 	{
 		return 1;
 	}
+	if (argArray == NULL)
+	{
+		return 1;
+	}
 	else
 	{
 		printf("are we here?\n");
