@@ -85,19 +85,80 @@ int executeInput(char **argArray, int status)
 }
 
 
+int fileInputOutput(char* term)
+{
+	if (strcmp(">", term) == 0)
+	{
+		return 1;
+	}
+	if (strcmp("<", term) == 0)
+	{
+		return 2;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+
 int startProcess(char **argArray)
 {
 	pid_t pid;
 	int status;
+	int redirect = fileInputOutput(argArray[1]);
+	int fd, fd2;
 	
 	pid = fork();
 	if (pid == 0) //we are in the child process
 	{
-		if (execvp(argArray[0], argArray) == -1)
+		if (redirect == 1) //second item in argArray is >
 		{
-			perror("smallsh: ");
+			fd = open(argArray[2], O_WRONLY | O_CREAT | O_TRUN, 0644);
+			if (fd == -1)
+			{
+				perror("open");
+				exit(1);
+			}
+			fd2 = dup2(fd, 1);
+			if (fd2 == -1)
+			{
+				perror("dup2");
+				exit(2);
+			}
+			if (execlp(argArray[0], argArray[0], NULL) == -1)
+			{
+				perror("smallsh: ");
+			}
+			exit(EXIT_FAILURE);
 		}
-		exit(EXIT_FAILURE);
+		else if (redirect == 2) //second item in argArray is <
+		{
+			fd = open(argArray[2], O_RDONLY);
+			if (fd == -1)
+			{
+				perror("open");
+				exit(1);
+			}
+			fd2 = dup2(fd, 0);
+			{
+				perror("dup2");
+				exit(2);
+			}	
+			if (execlp(argArray[0], argArray[0], NULL) == -1)
+			{
+				perror("smallsh: ");
+			}
+			exit(EXIT_FAILURE);
+		}
+		else //second item in argArray is not < or >
+		{
+			if (execvp(argArray[0], argArray) == -1)
+			{
+				perror("smallsh: ");
+			}
+			exit(EXIT_FAILURE);
+		}
 	}
 	else if (pid < 0)
 	{
