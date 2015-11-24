@@ -146,6 +146,7 @@ int startProcess(char **argArray)
 				exit(1);
 			}
 			fd2 = dup2(fd, 0);
+			if (fd2 == -1)
 			{
 				perror("dup2");
 				exit(2);
