@@ -40,11 +40,11 @@ void printStatus(int status)
 {
 	if ((status >= 0) && (status <= 1))
 	{
-		printf("Exit value %d", status);
+		printf("Exit value %d\n", status);
 	}
 	if (status > 1)
 	{
-		printf("Terminated by signal %d", status);
+		printf("Terminated by signal %d\n", status);
 	}
 }
 
